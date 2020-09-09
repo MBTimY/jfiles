@@ -16,7 +16,7 @@ pipeline {
             steps {
 	        git url: params.REPOURL, branch: params.BRANCH
                 sh 'mvn --version'
-		sh 'ls /root/.m2'
+		sh 'ls ~/.m2'
 		sh 'ls /.m2'
                 sh 'mvn clean compile'
             }
