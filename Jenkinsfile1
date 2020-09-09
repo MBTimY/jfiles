@@ -35,7 +35,6 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'spotbugs'
-                    label 'spotbugs'
                     args '-v $HOME/.m2:/root/.m2'
                 }
             }
