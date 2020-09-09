@@ -5,15 +5,7 @@ pipeline {
 		string(name: 'BRANCH', description: 'branch of repository')
     }
 
-    stages {
-        stage('prerequisite') {
-        	agent any
-	        steps {
-	        	git url: params.REPOURL, branch: params.BRANCH
-		        sh 'ls ./'
-	        }
-        }
-	
+    stages {	
        stage('compiler') {
             agent {
                 docker {
