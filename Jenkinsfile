@@ -10,6 +10,7 @@ pipeline {
         	agent any
 	        steps {
 	        	git url: params.REPOURL, branch: params.BRANCH
+		        sh 'ls ./'
 	        }
         }
 
