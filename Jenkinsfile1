@@ -14,22 +14,6 @@ pipeline {
 	        }
         }
 
-        stage('compiler') {
-            agent {
-                docker {
-                    image 'maven:3-alpine'
-                    args '-v $HOME/.m2:/root/.m2'
-                    }
-            }
-            steps {
-		git url: params.REPOURL, branch: params.BRANCH
-		sh 'pwd'
-		sh 'ls ./'
-                sh 'mvn --version'
-                sh 'mvn clean compile'
-            }
-        }
-
         stage('spotbugs') {
             agent {
                 dockerfile {
