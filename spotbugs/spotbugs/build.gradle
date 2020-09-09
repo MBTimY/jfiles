@@ -1,0 +1,5 @@
+
+compileGroovy {
+    //Configuration that will force the static compilation
+    groovyOptions.configurationScript = file("/spotbugs/gradle/config.groovy")
+}

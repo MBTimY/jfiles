@@ -1,0 +1,68 @@
+include:
+  - https://gitlab.com/gitlab-org/security-products/ci-templates/raw/master/includes-dev/analyzer.yml
+
+variables:
+  REPORT_FILENAME: gl-sast-report.json
+  MAJOR: 2
+  MAX_IMAGE_SIZE_BYTE: 1992294400
+  MAX_SCAN_DURATION_SECONDS: 600
+  SAST_DEFAULT_ANALYZERS: "gosec,secrets"
+
+integration test:
+  variables:
+    SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
+
+.qa-downstream-sast:
+  variables:
+    SAST_EXCLUDED_PATHS: "" # TEMP: until https://gitlab.com/gitlab-org/gitlab/-/issues/223283
+    SAST_DEFAULT_ANALYZERS: "spotbugs"
+    DS_DEFAULT_ANALYZERS: ""
+    SAST_DISABLE_DIND: "true"
+
+java-maven-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-maven
+    branch: no_dind-FREEZE
+
+java-maven-multimodules-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven-multimodules/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-maven-multimodules
+    branch: no_dind-FREEZE
+
+java-gradle-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-gradle/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-gradle
+    branch: no_dind-FREEZE
+
+java-maven-qa-MAVEN_CLI_OPTS:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-maven-cli-opts/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-maven
+    branch: maven-cli-opts-skip-tests-FREEZE
+
+java-groovy-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/java-groovy/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/java-groovy
+    branch: no_dind-FREEZE
+
+scala-sbt-qa:
+  extends: .qa-downstream-sast
+  variables:
+    SAST_REPORT_URL: "$CI_PROJECT_URL/raw/$CI_COMMIT_REF_NAME/qa/expect/scala-sbt/gl-sast-report.json"
+  trigger:
+    project: gitlab-org/security-products/tests/scala-sbt
+    branch: no_dind-FREEZE

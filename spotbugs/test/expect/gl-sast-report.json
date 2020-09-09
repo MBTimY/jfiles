@@ -1,0 +1,1381 @@
+{
+  "version": "2.3",
+  "vulnerabilities": [
+    {
+      "category": "sast",
+      "name": "Hardcoded constant database password",
+      "message": "Hardcoded constant database password",
+      "description": "Hardcoded constant database password in com.gitlab.security_products.tests.App.connectDB()",
+      "cve": "174d74b7e9254a771ec48f2bea04dd9e:DMI_CONSTANT_DB_PASSWORD:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:69",
+      "severity": "High",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 69,
+        "end_line": 69,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "connectDB"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-DMI_CONSTANT_DB_PASSWORD",
+          "value": "DMI_CONSTANT_DB_PASSWORD",
+          "url": "https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html#dm-hardcoded-constant-database-password-dmi-constant-db-password"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Hard coded password",
+      "message": "Hard coded password",
+      "description": "Hard coded password found",
+      "cve": "152b194ec25a42d93c5525b0a38a9186:HARD_CODE_PASSWORD:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:69",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 69,
+        "end_line": 69,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "getConnection"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-HARD_CODE_PASSWORD",
+          "value": "HARD_CODE_PASSWORD",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#HARD_CODE_PASSWORD"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-259",
+          "value": "259",
+          "url": "https://cwe.mitre.org/data/definitions/259.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "4d583e3776e554f91c7c22c21e9089b6:CIPHER_INTEGRITY:sbt-project/src/main/scala/com/example/Main.scala:13",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "sbt-project/src/main/scala/com/example/Main.scala",
+        "start_line": 13,
+        "end_line": 13,
+        "class": "com.example.Main$",
+        "method": "main"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "7901cbcd58fb71c3d0ab0572afb8825c:PREDICTABLE_RANDOM:grails-project/grails-app/controllers/grails/project/HelloController.groovy:35",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "grails-project/grails-app/controllers/grails/project/HelloController.groovy",
+        "start_line": 35,
+        "end_line": 35,
+        "class": "grails.project.HelloController",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "7a98c3a8d5f8efaee9ffbc31f309affc:ECB_MODE:grails-project/grails-app/controllers/grails/project/HelloController.groovy:24",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "grails-project/grails-app/controllers/grails/project/HelloController.groovy",
+        "start_line": 24,
+        "end_line": 24,
+        "class": "grails.project.HelloController",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "818bf5dacb291e15d9e6dc3c5ac32178:PREDICTABLE_RANDOM:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:58",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 58,
+        "end_line": 58,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "818bf5dacb291e15d9e6dc3c5ac32178:PREDICTABLE_RANDOM:gradle-project/src/main/java/com/gitlab/security_products/tests/App.java:47",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradle-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 47,
+        "end_line": 47,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "818bf5dacb291e15d9e6dc3c5ac32178:PREDICTABLE_RANDOM:gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java:47",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 47,
+        "end_line": 47,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "818bf5dacb291e15d9e6dc3c5ac32178:PREDICTABLE_RANDOM:groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy:47",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy",
+        "start_line": 47,
+        "end_line": 47,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "818bf5dacb291e15d9e6dc3c5ac32178:PREDICTABLE_RANDOM:maven-project/src/main/java/com/gitlab/security_products/tests/App.java:47",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 47,
+        "end_line": 47,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "818bf5dacb291e15d9e6dc3c5ac32178:PREDICTABLE_RANDOM:mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java:47",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 47,
+        "end_line": 47,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "9baef23cf7301818778cda46b349a763:PREDICTABLE_RANDOM:grails-project/grails-app/controllers/grails/project/HelloController.groovy:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "grails-project/grails-app/controllers/grails/project/HelloController.groovy",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "grails.project.HelloController",
+        "method": "generateSecretToken2"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e5e66b8638bae0b7b5e636dd0d0dfdb3:CIPHER_INTEGRITY:grails-project/grails-app/controllers/grails/project/HelloController.groovy:24",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "grails-project/grails-app/controllers/grails/project/HelloController.groovy",
+        "start_line": 24,
+        "end_line": 24,
+        "class": "grails.project.HelloController",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:40",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 40,
+        "end_line": 40,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:gradle-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradle-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+          "id": "find_sec_bugs",
+          "name": "Find Security Bugs"
+      },
+      "location": {
+          "file": "maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java",
+          "start_line": 29,
+          "end_line": 29,
+          "class": "com.gitlab.security_products.tests.App",
+          "method": "insecureCypher"
+      },
+      "identifiers": [
+          {
+              "type": "find_sec_bugs_type",
+              "name": "Find Security Bugs-CIPHER_INTEGRITY",
+              "value": "CIPHER_INTEGRITY",
+              "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+          },
+          {
+              "type": "cwe",
+              "name": "CWE-353",
+              "value": "353",
+              "url": "https://cwe.mitre.org/data/definitions/353.html"
+          }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:maven-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "e6449b89335daf53c0db4c0219bc1634:CIPHER_INTEGRITY:mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:52",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 52,
+        "end_line": 52,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:gradle-project/src/main/java/com/gitlab/security_products/tests/App.java:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradle-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:maven-project/src/main/java/com/gitlab/security_products/tests/App.java:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Predictable pseudorandom number generator",
+      "message": "Predictable pseudorandom number generator",
+      "description": "This random generator (java.util.Random) is predictable",
+      "cve": "e8ff1d01f74cd372f78da8f5247d3e73:PREDICTABLE_RANDOM:mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java:41",
+      "severity": "Medium",
+      "confidence": "Medium",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 41,
+        "end_line": 41,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "generateSecretToken1"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-PREDICTABLE_RANDOM",
+          "value": "PREDICTABLE_RANDOM",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#PREDICTABLE_RANDOM"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-330",
+          "value": "330",
+          "url": "https://cwe.mitre.org/data/definitions/330.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:40",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 40,
+        "end_line": 40,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:gradle-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradle-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "gradlew-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "groovy-project/src/main/groovy/com/gitlab/security_products/tests/App.groovy",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+      {
+        "category": "sast",
+        "name": "ECB mode is insecure",
+        "message": "ECB mode is insecure",
+        "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+        "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java:29",
+        "severity": "Medium",
+        "confidence": "High",
+        "scanner": {
+            "id": "find_sec_bugs",
+            "name": "Find Security Bugs"
+        },
+        "location": {
+        "file": "maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-multimodule-project/api/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:maven-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "maven-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "ECB mode is insecure",
+      "message": "ECB mode is insecure",
+      "description": "The cipher uses ECB mode, which provides poor confidentiality for encrypted data",
+      "cve": "ea0f905fc76f2739d5f10a1fd1e37a10:ECB_MODE:mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java:29",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "mvnw-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 29,
+        "end_line": 29,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "insecureCypher"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-ECB_MODE",
+          "value": "ECB_MODE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#ECB_MODE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-327",
+          "value": "327",
+          "url": "https://cwe.mitre.org/data/definitions/327.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Hard coded key",
+      "message": "Hard coded key",
+      "description": "Hard coded cryptographic key found",
+      "cve": "ffea2f5b576f73395edcc0582b8906f2:HARD_CODE_KEY:sbt-project/src/main/scala/com/example/Main.scala:12",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "sbt-project/src/main/scala/com/example/Main.scala",
+        "start_line": 12,
+        "end_line": 12,
+        "class": "com.example.Main$",
+        "method": "getBytes"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-HARD_CODE_KEY",
+          "value": "HARD_CODE_KEY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#HARD_CODE_KEY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-321",
+          "value": "321",
+          "url": "https://cwe.mitre.org/data/definitions/321.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Information Exposure Through An Error Message",
+      "message": "Information Exposure Through An Error Message",
+      "description": "Possible information exposure through an error message",
+      "cve": "418a33a714430ea4370850e07cc9e8da:INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:76",
+      "severity": "Low",
+      "confidence": "Low",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 76,
+        "end_line": 76,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "connectDB"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+          "value": "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-209",
+          "value": "209",
+          "url": "https://cwe.mitre.org/data/definitions/209.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Information Exposure Through An Error Message",
+      "message": "Information Exposure Through An Error Message",
+      "description": "Possible information exposure through an error message",
+      "cve": "418a33a714430ea4370850e07cc9e8da:INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE:ant-project/src/main/java/com/gitlab/security_products/tests/App.java:78",
+      "severity": "Low",
+      "confidence": "Low",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "ant-project/src/main/java/com/gitlab/security_products/tests/App.java",
+        "start_line": 78,
+        "end_line": 78,
+        "class": "com.gitlab.security_products.tests.App",
+        "method": "connectDB"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+          "value": "INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#INFORMATION_EXPOSURE_THROUGH_AN_ERROR_MESSAGE"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-209",
+          "value": "209",
+          "url": "https://cwe.mitre.org/data/definitions/209.html"
+        }
+      ]
+    }
+  ],
+  "remediations": [],
+  "scan": {
+    "scanner": {
+      "id": "find_sec_bugs",
+      "name": "Find Security Bugs",
+      "url": "https://spotbugs.github.io",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "4.0.2"
+    },
+    "type": "sast",
+    "status": "success",
+    "start_time": "placeholder-value",
+    "end_time": "placeholder-value"
+  }
+}

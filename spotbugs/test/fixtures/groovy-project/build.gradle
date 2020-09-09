@@ -1,0 +1,28 @@
+group 'com.gitlab.security_products'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '4.12'
+}
+
+dependencies {
+    testCompile "junit:junit:$junitVersion"
+    compile 'org.codehaus.groovy:groovy-all:2.4.15'
+}
+
+jar {
+  manifest {
+    attributes(
+      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+      'Main-Class': 'com.gitlab.security_products.tests.App'
+    )
+  }
+}
+

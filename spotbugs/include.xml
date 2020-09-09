@@ -1,0 +1,6 @@
+<!-- Include File for SpotBugs that will only report SECURITY issues-->
+<FindBugsFilter>
+    <Match>
+        <Bug category="SECURITY"/>
+    </Match>
+</FindBugsFilter>

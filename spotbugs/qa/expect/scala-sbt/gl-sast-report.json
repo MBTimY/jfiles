@@ -1,0 +1,89 @@
+{
+  "version": "2.4",
+  "vulnerabilities": [
+    {
+      "category": "sast",
+      "name": "Hard coded key",
+      "message": "Hard coded key",
+      "description": "Hard coded cryptographic key found",
+      "cve": "102ac67e0975ecec02a056008e0faad8:HARD_CODE_KEY:src/main/scala/example/Main.scala:12",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "src/main/scala/example/Main.scala",
+        "start_line": 12,
+        "end_line": 12,
+        "class": "example.Main$",
+        "method": "getBytes"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-HARD_CODE_KEY",
+          "value": "HARD_CODE_KEY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#HARD_CODE_KEY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-321",
+          "value": "321",
+          "url": "https://cwe.mitre.org/data/definitions/321.html"
+        }
+      ]
+    },
+    {
+      "category": "sast",
+      "name": "Cipher with no integrity",
+      "message": "Cipher with no integrity",
+      "description": "The cipher does not provide data integrity",
+      "cve": "22638f20786f979911c3f22f9b30f24f:CIPHER_INTEGRITY:src/main/scala/example/Main.scala:13",
+      "severity": "Medium",
+      "confidence": "High",
+      "scanner": {
+        "id": "find_sec_bugs",
+        "name": "Find Security Bugs"
+      },
+      "location": {
+        "file": "src/main/scala/example/Main.scala",
+        "start_line": 13,
+        "end_line": 13,
+        "class": "example.Main$",
+        "method": "main"
+      },
+      "identifiers": [
+        {
+          "type": "find_sec_bugs_type",
+          "name": "Find Security Bugs-CIPHER_INTEGRITY",
+          "value": "CIPHER_INTEGRITY",
+          "url": "https://find-sec-bugs.github.io/bugs.htm#CIPHER_INTEGRITY"
+        },
+        {
+          "type": "cwe",
+          "name": "CWE-353",
+          "value": "353",
+          "url": "https://cwe.mitre.org/data/definitions/353.html"
+        }
+      ]
+    }
+  ],
+  "remediations": [],
+  "scan": {
+    "scanner": {
+      "id": "find_sec_bugs",
+      "name": "Find Security Bugs",
+      "url": "https://spotbugs.github.io",
+      "vendor": {
+        "name": "GitLab"
+      },
+      "version": "4.0.2"
+    },
+    "type": "sast",
+    "status": "success",
+    "start_time": "placeholder-value",
+    "end_time": "placeholder-value"
+  }
+}

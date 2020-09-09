@@ -1,0 +1,5 @@
+analyzer
+test/fixtures/**/target
+test/fixtures/**/build
+test/fixtures/**/gl-sast-report.json
+test/fixtures/**/.gradle

@@ -1,0 +1,16 @@
+group 'com.gitlab.security_products'
+version '0.0.1'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '4.12'
+}
+
+dependencies {
+    testCompile "junit:junit:$junitVersion"
+}

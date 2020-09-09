@@ -1,0 +1,13 @@
+image: maven:3.6-jdk-8-alpine
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - mvn package
+  artifacts:
+    paths:
+      - target/web-1.0-SNAPSHOT.jar
