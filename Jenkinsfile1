@@ -39,7 +39,13 @@ pipeline {
                 }
             }
             steps {
+	    	sh 'ls /'
+		sh 'ls ./'
+		sh 'pwd'
 		git url: params.REPOURL, branch: params.BRANCH
+		sh 'ls /'
+		sh 'ls ./'
+		sh 'pwd'
                 sh '/analyze r ./'
             }
         }
