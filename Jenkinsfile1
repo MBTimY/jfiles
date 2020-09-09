@@ -46,7 +46,7 @@ pipeline {
 		sh 'ls /'
 		sh 'ls ./'
 		sh 'pwd'
-                sh '/analyzer r ./'
+                sh '/analyzer r --target-dir ./'
             }
         }
     }
