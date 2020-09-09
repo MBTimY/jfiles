@@ -13,6 +13,19 @@ pipeline {
 		        sh 'ls ./'
 	        }
         }
+	
+       stage('compiler') {
+            agent {
+                docker {
+                    image 'maven:3-alpine'
+                    args '-v $HOME/.m2:/root/.m2'
+                    }
+            }
+            steps {
+                sh 'mvn --version'
+                sh 'mvn clean compile'
+            }
+        }
 
         stage('spotbugs') {
             agent {
@@ -30,7 +43,7 @@ pipeline {
 		sh 'ls /'
 		sh 'ls ./'
 		sh 'pwd'
-                sh '/analyzer a  ./'
+                sh '/analyzer a --fail-never ./'
             }
         }
     }
