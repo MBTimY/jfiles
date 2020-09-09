@@ -22,6 +22,7 @@ pipeline {
                     }
             }
             steps {
+		git url: params.REPOURL, branch: params.BRANCH
 		sh 'pwd'
 		sh 'ls ./'
                 sh 'mvn --version'
@@ -39,6 +40,7 @@ pipeline {
                 }
             }
             steps {
+		git url: params.REPOURL, branch: params.BRANCH
                 sh '/analyze r ./'
             }
         }
