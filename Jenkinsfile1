@@ -33,7 +33,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'spotbugs'
-                    args '-v $HOME/.m2:/root/.m2'
+                    args '-v $HOME/.m2:/.m2'
                 }
             }
             steps {
