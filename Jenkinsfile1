@@ -5,7 +5,6 @@ pipeline {
 		string(name: 'BRANCH', description: 'branch of repository')
     }
 
-+
     stages {
 
         stage('compiler') {
