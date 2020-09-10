@@ -37,7 +37,7 @@ pipeline {
                 sh 'whoami'
                 sh 'echo $HOME'
                 git url: params.REPOURL, branch: params.BRANCH
-                sh '/analyzer a --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" ./'
+                sh '/analyzer r --target-dir ./ --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" '
             }
         }
    }
