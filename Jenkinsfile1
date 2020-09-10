@@ -5,6 +5,7 @@ pipeline {
 		string(name: 'BRANCH', description: 'branch of repository')
     }
 
++
     stages {
 
         stage('compiler') {
@@ -33,7 +34,7 @@ pipeline {
                 }
             }
             steps {
-                sh '/analyze a --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" ./'
+                sh '/analyzer a --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" ./'
             }
         }
    }
