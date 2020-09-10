@@ -33,6 +33,7 @@ pipeline {
                 }
             }
             steps {
+                git url: params.REPOURL, branch: params.BRANCH
                 sh '/analyzer a --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" ./'
             }
         }
