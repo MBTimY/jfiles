@@ -19,28 +19,8 @@ pipeline {
             steps {
                 git url: params.REPOURL, branch: params.BRANCH
                 sh 'mvn --version'
-		sh 'ls /.m2'
                 sh 'mvn clean compile'
             }
         }
-        stage('spotbugs') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir 'spotbugs'
-                    args '-v $HOME/.m2:/.m2'
-                }
-            }
-            steps {
-	    	sh 'ls /'
-		sh 'ls ./'
-		sh 'pwd'
-		git url: params.REPOURL, branch: params.BRANCH
-		sh 'ls /'
-		sh 'ls ./'
-		sh 'pwd'
-                sh '/analyzer a --fail-never ./'
-            }
-        }
-    }
+   }
 }
