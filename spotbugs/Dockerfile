@@ -6,6 +6,9 @@ RUN go env -w  GOPROXY=https://goproxy.cn,direct && go build -o analyzer
 
 FROM alpine:3.12
 
+ARG USER_ID
+ARG GROUP_ID
+ARG HOME_DIR
 ARG ANT_VERSION
 ARG FINDSECBUGS_VERSION
 ARG GRAILS_VERSION
@@ -35,6 +38,11 @@ ENV SPOTBUGS_VERSION ${SPOTBUGS_VERSION:-4.0.2}
 ENV SDKMAN_DIR="/usr/local/sdkman"
 ENV SDK_CAND="$SDKMAN_DIR/candidates"
 ENV JAVA_HOME="$SDK_CAND/java/current"
+
+RUN if [ ${USER_ID:-0} -ne 0 ] && [ ${GROUP_ID:-0} -ne 0 ]; then \
+    addgroup -g ${GROUP_ID} jenkins && \
+    adduser -h $HOME_DIR -D -u ${USER_ID} -G jenkins jenkins \
+;fi
 
 RUN apk add --no-cache bash curl zip zstd
 USER 0

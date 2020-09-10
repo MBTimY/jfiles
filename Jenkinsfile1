@@ -22,5 +22,19 @@ pipeline {
                 sh 'mvn clean compile'
             }
         }
+
+        stage('spotbugs') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'spotbugs'
+                    args '-v $HOME/.m2:$HOME/.m2 -e MAVEN_CONFIG=$HOME/.m2 -e MAVEN_USER=$HOME'
+                    additionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER) --build-arg HOME_DIR=$HOME'
+                }
+            }
+            steps {
+                sh '/analyze a --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" ./'
+            }
+        }
    }
 }
