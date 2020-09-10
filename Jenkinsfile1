@@ -13,7 +13,7 @@ pipeline {
                     filenmae 'Dockerfile'
                     dir 'maven'
                     args '-v $HOME/.m2:$HOME/.m2'
-                    addtionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER)'
+                    additionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER)'
                     }
             }
             steps {
