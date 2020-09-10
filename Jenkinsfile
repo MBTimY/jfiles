@@ -6,37 +6,20 @@ pipeline {
     }
 
     stages {
-        stage('prerequisite') {
-        	agent any
-	        steps {
-	        	git url: params.REPOURL, branch: params.BRANCH
-	        }
-        }
 
         stage('compiler') {
             agent {
-                docker {
-                    image 'maven:3-alpine'
-                    args '-v $HOME/.m2:/root/.m2'
+                dockerfile {
+                    filenmae 'Dockerfile'
+                    dir 'maven'
+                    args '-v $HOME/.m2:$HOME/.m2'
+                    addtionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER)'
                     }
             }
             steps {
+                git url: params.REPOURL, branch: params.BRANCH
                 sh 'mvn --version'
                 sh 'mvn clean compile'
-            }
-        }
-
-        stage('spotbugs') {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                    dir 'spotbugs'
-                    label 'spotbugs'
-                    args '-v $HOME/.m2:/root/.m2'
-                }
-            }
-            steps {
-                sh '/analyze r ./'
             }
         }
     }
