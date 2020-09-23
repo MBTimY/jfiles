@@ -42,7 +42,7 @@ pipeline {
             }
         }
         stage('reporting') {
-            agent none
+            agent any 
 
             steps {
                 recordIssues(tools: [spotBugs(pattern: '"**/SpotBugs.xml"', useRankAsPriority: true)])
