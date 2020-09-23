@@ -7,7 +7,7 @@ pipeline {
 
     stages {
 
-        stage('compiler') {
+        stage('compilers') {
             agent {
                 dockerfile {
                     filename 'Dockerfile'
@@ -38,6 +38,14 @@ pipeline {
                 sh 'echo $HOME'
                 git url: params.REPOURL, branch: params.BRANCH
                 sh '/analyzer r --target-dir ./ --mavenCliOpts "--batch-mode -DskipTests=true -Duser.home=$MAVEN_USER" '
+                sh 'cp /tmp/SpotBugs.xml ./'
+            }
+        }
+        stage('reporting') {
+            agent none
+
+            steps {
+                recordIssues(tools: [spotBugs(pattern: '"**/SpotBugs.xml"', useRankAsPriority: true)])
             }
         }
    }
