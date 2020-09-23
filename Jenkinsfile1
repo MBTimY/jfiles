@@ -47,7 +47,7 @@ pipeline {
             steps {
                 git url: params.REPOURL, branch: params.BRANCH
                 sh 'ls ./'
-                recordIssues(tools: [spotBugs(pattern: '"SpotBugs.xml"', useRankAsPriority: true)])
+                recordIssues(tools: [spotBugs(pattern: '"./SpotBugs.xml"', useRankAsPriority: true)])
             }
         }
    }
