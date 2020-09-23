@@ -45,7 +45,7 @@ pipeline {
             agent any 
 
             steps {
-                recordIssues(tools: [spotBugs(pattern: '"**/SpotBugs.xml"', useRankAsPriority: true)])
+                recordIssues(tools: [spotBugs(useRankAsPriority: true)])
             }
         }
    }
