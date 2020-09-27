@@ -41,6 +41,7 @@ pipeline {
                 sh 'cp /tmp/SpotBugs.xml ./'
             }
         }
+        
         stage('reporting') {
             agent any 
 

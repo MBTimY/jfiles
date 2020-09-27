@@ -1,0 +1,21 @@
+pipeline {
+    agent none 
+
+    parameters {
+		string(name: 'REPOURL', description: 'SCM repository url address')
+		string(name: 'BRANCH', description: 'branch of repository')
+    }
+
+    stages {
+        stage('sonarscan') {
+            agent { docker 'maven:3-alpine' }
+
+            steps {
+                git url: params.REPOURL, branch: params.BRANCH
+                withSonarQubeEnv('tempSonarQube') {
+                    sh 'mvn clean package sonar:sonar'
+                } 
+            }
+        }
+   }
+}
