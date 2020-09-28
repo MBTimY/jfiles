@@ -1,0 +1,27 @@
+pipeline {
+    agent none 
+
+    parameters {
+		string(name: 'REPOURL', description: 'SCM repository url address')
+		string(name: 'BRANCH', description: 'branch of repository')
+    }
+
+    stages {
+        stage('sonarscan') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'gradle_'
+                    additionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER) --build-arg HOME_DIR=$HOME'
+                    }
+            }
+
+            steps {
+                git url: params.REPOURL, branch: params.BRANCH
+                withSonarQubeEnv('tempSonarQube') {
+                    sh 'gradle sonarqube'
+                } 
+            }
+        }
+   }
+}

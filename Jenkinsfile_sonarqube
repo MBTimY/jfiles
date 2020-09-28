@@ -1,0 +1,29 @@
+pipeline {
+    agent none 
+
+    parameters {
+		string(name: 'REPOURL', description: 'SCM repository url address')
+		string(name: 'BRANCH', description: 'branch of repository')
+    }
+
+    stages {
+        stage('sonarscan') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'maven'
+                    args '-v $HOME/.m2:$HOME/.m2 -e MAVEN_CONFIG=$HOME/.m2'
+                    additionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER) --build-arg HOME_DIR=$HOME'
+                    }
+            }
+
+            steps {
+                git url: params.REPOURL, branch: params.BRANCH
+                withSonarQubeEnv('tempSonarQube') {
+                    sh 'mvn --version'
+                    sh 'mvn clean package sonar:sonar'
+                } 
+            }
+        }
+   }
+}
