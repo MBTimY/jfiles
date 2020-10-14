@@ -1,0 +1,19 @@
+pipeline {
+    agent none 
+
+    stages {
+        stage('containerScan') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'trivy'
+                    additionalBuildArgs '--build-arg USER_ID=$(id -u $USER) --build-arg GROUP_ID=$(id -g $USER) --build-arg HOME_DIR=$HOME'                    
+                    }
+            }
+
+            steps {
+                sh 'trivy client --remote http://172.28.16.83:8080 --format template --template "@contrib/gitlab.tpl" python:3.4-alpine'
+            }
+        }
+   }
+}
