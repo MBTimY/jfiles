@@ -11,9 +11,10 @@ RUN if [ ${USER_ID:-0} -ne 0 ] && [ ${GROUP_ID:-0} -ne 0 ]; then \
     adduser -h $HOME_DIR -D -u ${USER_ID} -G jenkins jenkins \
 ;fi
 
-USER jenkins
 
 RUN apk --no-cache add ca-certificates git rpm
 COPY --from=trivy /usr/local/bin/trivy /usr/local/bin/trivy
 COPY --from=trivy /contrib/*.tpl /contrib/
+
+USER jenkins
 ENTRYPOINT ["/bin/sh", "-c"]
