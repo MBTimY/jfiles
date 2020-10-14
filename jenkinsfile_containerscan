@@ -7,12 +7,13 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'trivy'
+                    args '-u 0'
                     }
             }
 
             steps {
                 sh 'id'
-                sh 'trivy client --remote http://172.28.16.83:8080 --format template --template "@contrib/gitlab.tpl" python:3.4-alpine'
+                sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@contrib/gitlab.tpl" python:3.4-alpine'
             }
         }
    }
