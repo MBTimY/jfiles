@@ -15,7 +15,8 @@ pipeline {
             agent any
 
             steps {
-                sh 'echo ${params.PRIVATE}'
+                sh 'echo params.PRIVATE'
+                sh 'ls'
             }
         }
 
