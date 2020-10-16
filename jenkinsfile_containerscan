@@ -1,27 +1,53 @@
 pipeline {
     agent none 
 
+    parameters {
+		string(name: 'IMAGENAME', description: 'name of image for vul scan')
+		booleanParam(name: 'PRIVATE', description: 'whether dockerhub of private')
+		string(name: 'TRIVY_AUTH_URL', description: 'url of docker repository")
+		string(name: 'TRIVY_USERNAME', description: 'username of docker repository')
+		string(name: 'TRIVY_PASSWORD', description: 'password of docker repository')
+    }
     stages {
         stage('containerScan') {
+            when {
+                expression { return params.PRIVATE }
+            }
+
             agent {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'trivy'
-                    args '-u 0'
                     }
             }
 
            environment {
-                TRIVY_AUTH_URL='https://registry.hub.docker.com'
-                TRIVY_PASSWORD='Qawsed!2#'
-                TRIVY_USERNAME='timyueng'
+                TRIVY_AUTH_URL= params.TRIVY_AUTH_URL
+                TRIVY_PASSWORD= params.TRIVY_PASSWORD
+                TRIVY_USERNAME= params.TRIVY_USERNAME
             }
             
             steps {
-                sh 'id'
-                sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@/contrib/gitlab.tpl" --output result.json timyueng/test:latest'
-                sh 'ls'
+                sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@/contrib/gitlab.tpl" --output result.json ${params.IMAGENAME}'
             }
+        }
+    
+        stage('contanerScanPublic') {
+            when {
+                not expression { return params.PRIVATE }
+            }
+
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'trivy'
+                    }
+            }
+
+            steps {
+                sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@/contrib/gitlab.tpl" --output result.json ${params.IMAGENAME}'
+            }
+
         }
    }
 }
