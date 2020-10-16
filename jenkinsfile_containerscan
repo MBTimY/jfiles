@@ -12,9 +12,9 @@ pipeline {
             }
 
            environment {
-                TRIVY_AUTH_URL=https://registry.hub.docker.com
-                TRIVY_PASSWORD=Qawsed!2#
-                TRIVY_USERNAME=timyueng
+                TRIVY_AUTH_URL='https://registry.hub.docker.com'
+                TRIVY_PASSWORD='Qawsed!2#'
+                TRIVY_USERNAME='timyueng'
             }
             
             steps {
