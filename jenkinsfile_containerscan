@@ -4,7 +4,7 @@ pipeline {
     parameters {
 		string(name: 'IMAGENAME', description: 'name of image for vul scan')
 		booleanParam(name: 'PRIVATE', description: 'whether dockerhub of private')
-		string(name: 'TRIVY_AUTH_URL', description: 'url of docker repository")
+		string(name: 'TRIVY_AUTH_URL', description: 'url of docker repository')
 		string(name: 'TRIVY_USERNAME', description: 'username of docker repository')
 		string(name: 'TRIVY_PASSWORD', description: 'password of docker repository')
     }
