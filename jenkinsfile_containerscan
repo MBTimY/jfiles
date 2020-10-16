@@ -10,7 +10,10 @@ pipeline {
     }
 
     stages {
+
         stage('hello') {
+            agent any
+
             steps {
                 sh 'echo ${params.PRIVATE}'
             }
