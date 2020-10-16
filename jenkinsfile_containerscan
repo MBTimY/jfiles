@@ -11,9 +11,16 @@ pipeline {
                     }
             }
 
+           environment {
+                TRIVY_AUTH_URL=https://registry.hub.docker.com
+                TRIVY_PASSWORD=Qawsed!2#
+                TRIVY_USERNAME=timyueng
+            }
+            
             steps {
                 sh 'id'
-                sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@/contrib/gitlab.tpl" --output result.json python:3.4-alpine'
+                sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@/contrib/gitlab.tpl" --output result.json timyueng/test:latest'
+                sh 'ls'
             }
         }
    }
