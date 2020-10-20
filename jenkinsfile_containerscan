@@ -29,6 +29,7 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'trivy'
+                    args '-u 0'
                     }
             }
 
