@@ -2,11 +2,11 @@ pipeline {
     agent none 
 
     parameters {
-		string(name: 'IMAGENAME', description: 'name of image for vul scan')
+		string(name: 'IMAGENAME', defaultValue: '', description: 'name of image for vul scan')
 		booleanParam(name: 'PRIVATE',  defaultValue: false, description: 'whether dockerhub of private')
-		string(name: 'TRIVY_AUTH_URL', description: 'url of docker repository')
-		string(name: 'TRIVY_USERNAME', description: 'username of docker repository')
-		string(name: 'TRIVY_PASSWORD', description: 'password of docker repository')
+		string(name: 'TRIVY_AUTH_URL', defaultValue: '', description: 'url of docker repository')
+		string(name: 'TRIVY_USERNAME', defaultValue: '', description: 'username of docker repository')
+		string(name: 'TRIVY_PASSWORD', defaultValue: '', description: 'password of docker repository')
     }
 
     stages {
