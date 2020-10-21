@@ -20,7 +20,7 @@ pipeline {
                 dockerfile {
                     filename 'DockerfileMaven'
                     dir 'synk'
-                    args '-u 0 -e "SNYK_TOKEN=459c86ba-35dc-435a-a20f-f3d80592b1ab" -e "USER_ID=1000" -e "MONITOR=true"  -v "/home/user/.m2:/home/node/.m2"  -v "/home/user/.ivy2:/home/node/.ivy2"'
+                    args '-u 0 -e "SNYK_TOKEN=459c86ba-35dc-435a-a20f-f3d80592b1ab" -e "USER_ID=1000" -e "MONITOR=true"  -v "$HOME/.m2:/home/node/.m2"  -v "$HOME/.ivy2:/home/node/.ivy2"'
                 }
             }
 
