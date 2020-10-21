@@ -28,7 +28,7 @@ pipeline {
                 sh 'ls ./'
                 sh 'id'
                 git url: params.REPOURL, branch: params.BRANCH
-                sh 'ping 127.0.0.1'
+                sh 'useradd -o -m -u "${USER_ID}" -d /home/node docker-user'
                 sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=MBTimY'
             }
         }
