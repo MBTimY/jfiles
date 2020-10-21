@@ -1,0 +1,3 @@
+FROM snyk/snyk-cli:maven-3.5.4 AS snyk
+
+ENTRYPOINT ["/bin/sh", "-c"]
