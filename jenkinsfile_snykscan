@@ -27,7 +27,8 @@ pipeline {
             steps {
                 sh 'ls ./'
                 git url: params.REPOURL, branch: params.BRANCH
-                sh 'ls ./'
+                sh 'export PROJECT_PATH=`pwd`'
+                sh 'cd /home/node && ./docker-entrypoint.sh test --org=MBTimY'
             }
         }
    }
