@@ -1,0 +1,32 @@
+pipeline {
+    agent none 
+
+    parameters {
+		string(name: 'REPOURL', defaultValue: '', description: 'SCM repository url address')
+		string(name: 'BRANCH', defaultValue: '', description: 'branch of repository')
+        booleanParam(name: 'MAVEN',  defaultValue: false, description: 'whether dockerhub of private')
+        booleanParam(name: 'GRADLE',  defaultValue: false, description: 'whether dockerhub of private')
+
+    }
+
+    stages {
+        stage('synkMaven') {
+
+            when {
+                expression { return params.MAVEN}
+            }
+
+            agent {
+                docker {
+                    image 'snyk/snyk-cli:maven-3.5.4'
+                    args '-e "SNYK_TOKEN=459c86ba-35dc-435a-a20f-f3d80592b1ab" -e "USER_ID=1000" -e "MONITOR=true"  -v "/home/user/.m2:/home/node/.m2"  -v "/home/user/.ivy2:/home/node/.ivy2"'
+                }
+            }
+
+            steps {
+                git url: params.REPOURL, branch: params.BRANCH
+                sh 'ls ./'
+            }
+        }
+   }
+}
