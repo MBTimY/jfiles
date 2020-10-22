@@ -29,7 +29,7 @@ pipeline {
                 sh 'id'
                 sh 'ls -la /home/node/.m2/'
                 git url: params.REPOURL, branch: params.BRANCH
-                sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=MBTimY'
+                sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=mbtimy'
             }
         }
    }
