@@ -35,8 +35,8 @@ pipeline {
 
            environment {
                 TRIVY_AUTH_URL= "${params.TRIVY_AUTH_URL}"
-                TRIVY_PASSWORD= '${params.TRIVY_PASSWORD}'
-                TRIVY_USERNAME= '${params.TRIVY_USERNAME}'
+                TRIVY_PASSWORD= "${params.TRIVY_PASSWORD}"
+                TRIVY_USERNAME= "${params.TRIVY_USERNAME}"
                 IMAGENAME = "${params.IMAGENAME}"
             }
             
