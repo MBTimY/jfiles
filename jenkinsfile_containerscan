@@ -41,6 +41,7 @@ pipeline {
             }
             
             steps {
+                sh 'env'
                 sh 'trivy client --remote http://172.28.16.83:8082 --format template --template "@/contrib/gitlab.tpl" --output result.json $IMAGENAME'
             }
         }
