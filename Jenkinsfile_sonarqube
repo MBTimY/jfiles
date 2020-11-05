@@ -28,7 +28,7 @@ pipeline {
                 git url: params.REPOURL, branch: params.BRANCH
                 withSonarQubeEnv('tempSonarQube') {
                     sh 'mvn --version'
-                    sh 'mvn clean package sonar:sonar'
+                    sh 'mvn clean package sonar:sonar -Dsonar.dependencyCheck.xmlReportPath=target/dependency-check-report.xml'
                 } 
             }
         }
