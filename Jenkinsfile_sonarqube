@@ -5,10 +5,8 @@ pipeline {
 		string(name: 'REPOURL', description: 'SCM repository url address')
 		string(name: 'BRANCH', description: 'branch of repository')
     }
-    
-    tools {
-                dependency-check 'dependencycjeck'
-    }
+
+    tools dependency-check 'dependencycjeck'
 
     stages {
         stage ('dependencyCheck') {
