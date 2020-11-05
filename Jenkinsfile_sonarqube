@@ -10,7 +10,7 @@ pipeline {
         stage ('dependencyCheck') {
             agent any
             steps {
-                 dependencyCheck additionalArguments: '-f html,xml,json', odcInstallation: 'dependency111'
+                 dependencyCheck additionalArguments: '-f HTML -f XML', odcInstallation: 'dependency111'
                  dependencyCheckPublisher pattern: 'dependency-check-report.xml' 
             }
         }
