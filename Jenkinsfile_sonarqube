@@ -11,6 +11,7 @@ pipeline {
             agent any
             steps {
                  dependencyCheck additionalArguments: '', odcInstallation: 'dependency111'
+                 dependencyCheckPublisher pattern: 'dependency-check-report.xml' 
             }
         }
 
@@ -28,7 +29,7 @@ pipeline {
                 git url: params.REPOURL, branch: params.BRANCH
                 withSonarQubeEnv('tempSonarQube') {
                     sh 'mvn --version'
-                    sh 'mvn clean package sonar:sonar -Dsonar.dependencyCheck.xmlReportPath=target/dependency-check-report.xml'
+                    sh 'mvn clean package sonar:sonar -Dsonar.dependencyCheck.xmlReportPath=dependency-check-report.xml -Dsonar.dependencyCheck.htmlReportPath=dependency-check-report.html'
                 } 
             }
         }
