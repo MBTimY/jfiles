@@ -9,6 +9,10 @@ pipeline {
     stages {
         stage ('dependencyCheck') {
             agent any
+            
+            tools {
+                dependency-check "SonarScan"
+            }
 
             steps {
                 dependencyCheck additionalArguments: '', odcInstallation: 'Please define a Dependency-Check installation in the Jenkins Global Tool Configuration.'
