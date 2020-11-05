@@ -11,7 +11,7 @@ pipeline {
             agent any
 
             steps {
-                dependencyCheck additionalArguments: '', odcInstallation: 'dependencycjeck'
+                dependencyCheck additionalArguments: '', odcInstallation: 'dependency111'
             }
         }
 
