@@ -5,14 +5,14 @@ pipeline {
 		string(name: 'REPOURL', description: 'SCM repository url address')
 		string(name: 'BRANCH', description: 'branch of repository')
     }
+    
+    tools {
+                dependency-check 'dependencycjeck'
+    }
 
     stages {
         stage ('dependencyCheck') {
             agent any
-            
-            tools {
-                dependency-check 'dependencycjeck'
-            }
 
             steps {
                 dependencyCheck additionalArguments: '', odcInstallation: 'Please define a Dependency-Check installation in the Jenkins Global Tool Configuration.'
