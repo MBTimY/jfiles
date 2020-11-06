@@ -76,6 +76,7 @@ pipeline {
                 sh 'env'
                 git url: params.REPOURL, branch: params.BRANCH
                 sh 'ls -l'
+                sh 'pip install -r requirements.txt'
                 sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=mbtimy'
             }
         }
