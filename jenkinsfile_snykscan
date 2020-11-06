@@ -7,7 +7,7 @@ pipeline {
         booleanParam(name: 'MAVEN',  defaultValue: false, description: 'whether dockerhub of private')
         booleanParam(name: 'GRADLE',  defaultValue: false, description: 'whether dockerhub of private')
         booleanParam(name: 'PYTHON3',  defaultValue: false, description: 'whether dockerhub of private')
-        string(name: 'PYTHONDEPENDENCYNAME', defaultValue: 'requirement.txt', description: 'The dependency file of python')
+        string(name: 'PYTHONDEPENDENCYNAME', defaultValue: 'requirements.txt', description: 'The dependency file of python')
         booleanParam(name: 'NODEJS',  defaultValue: false, description: 'whether dockerhub of private')
     }
 
