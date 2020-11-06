@@ -1,3 +1,0 @@
-FROM snyk/snyk-cli:gradle-2.8
-
-ENTRYPOINT ["/bin/sh", "-c"]
