@@ -6,6 +6,9 @@ pipeline {
 		string(name: 'BRANCH', defaultValue: '', description: 'branch of repository')
         booleanParam(name: 'MAVEN',  defaultValue: false, description: 'whether dockerhub of private')
         booleanParam(name: 'GRADLE',  defaultValue: false, description: 'whether dockerhub of private')
+        booleanParam(name: 'PYTHON3',  defaultValue: false, description: 'whether dockerhub of private')
+        string(name: 'PYTHONDEPENDENCYNAME', defaultValue: 'requirement.txt', description: 'The python's dependency file')
+        booleanParam(name: 'NODEJS',  defaultValue: false, description: 'whether dockerhub of private')
 
     }
 
@@ -39,7 +42,7 @@ pipeline {
 
             agent {
                 dockerfile {
-                    filename 'DOckerfileGradle'
+                    filename 'DockerfileGradle'
                     dir 'synk'
                     args '-u 0 -e "SNYK_TOKEN=459c86ba-35dc-435a-a20f-f3d80592b1ab" -e "USER_ID=1000" -e "MONITOR=true"  -v "$HOME/.gradle:/home/node/.gradle"'
                 }
@@ -51,5 +54,52 @@ pipeline {
                 sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=mbtimy'
             }
         }
+
+        stage('synkPython3') {
+
+            when {
+                expression { return params.PYTHON3}
+            }
+
+            environment {
+                DEPENDFILE = "${param.PYTHONDEPENDENCYNAME}"
+            }
+
+            agent {
+                dockerfile {
+                    filename 'DockerfilePython'
+                    dir 'synk'
+                    args '-u 0 -e "SNYK_TOKEN=459c86ba-35dc-435a-a20f-f3d80592b1ab" -e "USER_ID=1000" -e "MONITOR=true" -e "TARGET_FILE=$DEPENDFILE"'
+                }
+            }
+
+            steps {
+                sh 'id'
+                git url: params.REPOURL, branch: params.BRANCH
+                sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=mbtimy'
+            }
+        }
+
+        stage('synkNodejs') {
+
+            when {
+                expression { return params.NODEJS}
+            }
+
+            agent {
+                dockerfile {
+                    filename 'DockerfileNodejs'
+                    dir 'synk'
+                    args '-u 0 -e "SNYK_TOKEN=459c86ba-35dc-435a-a20f-f3d80592b1ab" -e "USER_ID=1000" -e "MONITOR=true" 
+                }
+            }
+
+            steps {
+                sh 'id'
+                git url: params.REPOURL, branch: params.BRANCH
+                sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=mbtimy'
+            }
+        }
+
    }
 }

@@ -1,0 +1,3 @@
+FROM snyk/snyk-cli:python-3
+
+ENTRYPOINT ["/bin/sh", "-c"]
