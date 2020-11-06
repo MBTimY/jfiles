@@ -61,7 +61,7 @@ pipeline {
             }
 
             environment {
-                TARGET_FILE = "${param.PYTHONDEPENDENCYNAME}"
+                TARGET_FILE = "${params.PYTHONDEPENDENCYNAME}"
             }
 
             agent {
