@@ -75,6 +75,7 @@ pipeline {
             steps {
                 sh 'env'
                 git url: params.REPOURL, branch: params.BRANCH
+                sh 'ls -l'
                 sh 'export PROJECT_PATH=`pwd` && cd /home/node && ./docker-entrypoint.sh test --org=mbtimy'
             }
         }
