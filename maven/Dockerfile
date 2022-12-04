@@ -1,4 +1,4 @@
-FROM maven:3.8.6-eclipse-temurin-8-alpine
+FROM maven:3.8.6-eclipse-temurin-19-alpine
 
 ARG USER_ID
 ARG GROUP_ID
